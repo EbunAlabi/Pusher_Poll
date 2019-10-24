@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  
+    <title>PusherPoll</title>
+</head>
+<body>
+    <div class="container">
+            <h1>Book Vote</h1>
+            <p>Vote for your favourite Book of all time</p>
+            
+            
+                <form action="vote-form">
+                        <p>
+                          <label for="prosperity">
+                            <input name="group1" type="radio" id="prosperity" value="Prosperity" checked />
+                            <span>Prosperity Paradox</span>
+                          </label>
+                        </p>
+                        <p>
+                          <label for="speakerDead">
+                            <input name="group1" type="radio" id="speakerDead" value="SpeakerDead" />
+                            <span>Speaker for the Dead</span>
+                          </label>
+                        </p>
+                        <p>
+                          <label for="ada">
+                            <input class="with-gap" name="group1" type="radio" id="ada" value="Ada" />
+                            <span>Lessons by Ada</span>
+                          </label>
+                        </p>
+                        <p>
+                          <label for="pillow">
+                            <input name="group1" type="radio"  id="pillow" value="Pillow"  />
+                            <span>Pillow Talk</span>
+                          </label>
+                        </p>
+
+                        <input type="submit" value="Vote" class="btn">
+                      </form>
+
+                <br><br>
+
+                <div id="chartContainer" style="height: 300px; width: 100%"></div>
+            
+    </div>
+    
+
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+       
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+       
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pusher/5.0.2/json2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js"></script>
+    <script src="main.js"></script>
+
+
+</body>
+</html>
