@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
      <!-- Compiled and minified CSS -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
@@ -14,31 +15,33 @@
     <div class="container">
             <h1>Book Vote</h1>
             <p>Vote for your favourite Book of all time</p>
+            <!-- <div id="hasVotedAlreadyErrorMsg" class="card-panel hidden" style="width: 30%">
+                <span class="red-text text-darken-2">You have already voted, you can only vote once.</span>
+              </div> -->
             
-            
-                <form action="vote-form">
+                <form id="vote-form">
                         <p>
-                          <label for="prosperity">
-                            <input name="group1" type="radio" id="prosperity" value="Prosperity" checked />
-                            <span>Prosperity Paradox</span>
+                          <label >
+                            <input type="radio" name="book"  id="prosperity" value="Prosperity Paradox" />
+                            <span for="prosperity"> Prosperity Paradox</span>
                           </label>
                         </p>
                         <p>
-                          <label for="speakerDead">
-                            <input name="group1" type="radio" id="speakerDead" value="SpeakerDead" />
-                            <span>Speaker for the Dead</span>
+                          <label>
+                            <input type="radio" name="book"  id="speakerDead" value="Speaker for the Dead" />
+                            <span  for="speakerDead">Speaker for the Dead</span>
                           </label>
                         </p>
                         <p>
-                          <label for="ada">
-                            <input class="with-gap" name="group1" type="radio" id="ada" value="Ada" />
-                            <span>Lessons by Ada</span>
+                          <label >
+                            <input  type="radio" name="book"  id="ada" value="Lessons by Ada" />
+                            <span for="ada">Lessons by Ada</span>
                           </label>
                         </p>
                         <p>
-                          <label for="pillow">
-                            <input name="group1" type="radio"  id="pillow" value="Pillow"  />
-                            <span>Pillow Talk</span>
+                          <label >
+                            <input type="radio" name="book"   id="pillow" value="Pillow Talk"  />
+                            <span for="pillow">Pillow Talk</span>
                           </label>
                         </p>
 
@@ -48,7 +51,8 @@
                 <br><br>
 
                 <div id="chartContainer" style="height: 300px; width: 100%"></div>
-            
+                <div id="chartContainer2" style="height: 300px; width: 100%;"></div>
+
     </div>
     
 
@@ -59,10 +63,48 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
        
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pusher/5.0.2/json2.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js"></script>
+    <script src="https://js.pusher.com/5.0/pusher.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script src="main.js"></script>
 
 
+
+
+    <script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer2", {
+	animationEnabled: true,
+	exportEnabled: true,
+	theme: "light1", // "light1", "light2", "dark1", "dark2"
+	title:{
+		text: "Simple Column Chart with Index Labels"
+	},
+	data: [{
+		type: "column", //change type to bar, line, area, pie, etc
+		//indexLabel: "{y}", //Shows y value on all Data Points
+		indexLabelFontColor: "#5A5757",
+		indexLabelPlacement: "outside",
+		dataPoints: [
+			{ x: 10, y: 71 },
+			{ x: 20, y: 55 },
+			{ x: 30, y: 50 },
+			{ x: 40, y: 65 },
+			{ x: 50, y: 92, indexLabel: "Highest" },
+			{ x: 60, y: 68 },
+			{ x: 70, y: 38 },
+			{ x: 80, y: 71 },
+			{ x: 90, y: 54 },
+			{ x: 100, y: 60 },
+			{ x: 110, y: 36 },
+			{ x: 120, y: 49 },
+			{ x: 130, y: 21, indexLabel: "Lowest" }
+		]
+	}]
+});
+chart.render();
+
+}
+</script>
 </body>
 </html>
