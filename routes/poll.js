@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-
+const mongoose = require('mongoose');
+const Vote = require('../models/vote');
 
 //bring in pusher
 const Pusher = require('pusher')
@@ -20,13 +21,23 @@ router.get('/', (req,res)=> {
 
 
 router.post('/', (req,res)=> {
-    channels_client.trigger('book-poll', 'book-vote', {
-        points: 1,
-        book: req.body.book
-      });
+const newVote = {
+  book: req.body.book,
+  points:1
+}
 
-      return res.json({success: true, 
-                        message: 'Thank you for voting'});
+new Vote(newVote).save().then(vote=>{
+  channels_client.trigger('book-poll', 'book-vote', {
+    points: parseInt(vote.points),
+    book: req.body.book
+  });
+
+  return res.json({success: true, 
+                    message: 'Thank you for voting'});
 });
 
+
+});
+
+    
 module.exports = router;

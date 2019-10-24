@@ -4,6 +4,10 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const Pusher = require('pusher');
 
+//Db config
+require('./config/db')
+
+
 const app = express();
 //import all routes
 const poll = require('./routes/poll')
