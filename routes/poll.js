@@ -16,7 +16,8 @@ var channels_client = new Pusher({
 
 
 router.get('/', (req,res)=> {
-    res.send('POLL');
+    Vote.find().then(votes => res.json({success: true,
+    votes: votes}));
 });
 
 
@@ -29,7 +30,7 @@ const newVote = {
 new Vote(newVote).save().then(vote=>{
   channels_client.trigger('book-poll', 'book-vote', {
     points: parseInt(vote.points),
-    book: req.body.book
+    book: vote.book
   });
 
   return res.json({success: true, 
