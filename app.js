@@ -3,6 +3,13 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const Pusher = require('pusher');
+const dotenv = require('dotenv').config();
+
+
+// connect Mongoose to your DB
+const mongoose = require('mongoose');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://Ebz:Ebun0325@cluster0-exzpc.mongodb.net/test?retryWrites=true&w=majority');
+
 
 //Db config
 require('./config/db')
